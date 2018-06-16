@@ -88,6 +88,19 @@ Commercial support is available at
 <p><em>Thank you for using nginx.</em></p>
 </body>
 </html>
+意外：
+查看nginx加载配置文件的方法:
+ps aux | grep nginx 
+路径：
+/usr/local/nginx/sbin/nginx
+执行：
+/usr/local/nginx/sbin/nginx -t
+nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
+nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful
+如果启动失败 发现80端口被占用
+kill -9 pid
+然后执行：
+
 [mysql]
 安装MySQL 5.7版本，官网http://dev.mysql.com/downloads/repo/yum/ 
 rpm -Uvh  http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
