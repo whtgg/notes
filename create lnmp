@@ -248,6 +248,16 @@ nginx -s reload
 
 打开浏览器，看到内容说明运行成功！！！
 
+如果看不到内容检查端口是否开放：
+如：查看80端口是否开放 firewall-cmd --query-port=80/tcp
+永久开放80端口号：firewall-cmd --permanent --zone=public --add-port=80/tcp firewall-cmd --reload
+移除80端口号：firewall-cmd --permanent --zone=public --remove-port=80/tcp
+
+查看防火墙状态
+systemctl status firewalld.service
+启动|关闭|重新启动  防火墙
+systemctl [start|stop|restart] firewalld.service 
+
 
 
 
