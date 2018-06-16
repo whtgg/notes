@@ -1,1 +1,91 @@
+先把yum源换成国内的阿里云镜像源（当然不换也可以），先备份一下原来的源镜像文件，以免出错后可以恢复：
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+国内阿里镜像源:
+CentOS 5
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo
+
+CentOS 6
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo
+
+CentOS 7
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+国内163镜像源:
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo
+更改/etc/yum.repos.d/CentOS-Media.repo使其为不生效(可以不用)：
+enabled=0
+然后:
+yum clean all
+yum makecache
+yum update
+
+[安装Nginx]
+由于yum源中没有我们想要的nginx，那么我们就需要创建一个“/etc/yum.repos.d/nginx.repo”的文件，其实就是新增一个yum源:
+vi /etc/yum.repos.d/nginx.repo
+内容:
+[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+然后保存退出，输入 yum list nginx 查看:
+[root@192 yum.repos.d]# yum list nginx
+已加载插件：fastestmirror
+nginx                                                                           | 2.9 kB  00:00:00     
+nginx/7/x86_64/primary_db                                                       |  18 kB  00:00:04     
+Loading mirror speeds from cached hostfile
+ * base: mirrors.aliyun.com
+ * extras: mirrors.aliyun.com
+ * updates: mirrors.aliyun.com
+可安装的软件包
+nginx.x86_64                                  1:1.10.2-1.el7.ngx                                  nginx
+[root@192 yum.repos.d]# yum list |grep nginx
+nginx.x86_64                               1:1.10.2-1.el7.ngx          nginx    
+nginx-debug.x86_64                         1:1.8.0-1.el7.ngx           nginx    
+nginx-debuginfo.x86_64                     1:1.10.2-1.el7.ngx          nginx    
+nginx-module-geoip.x86_64                  1:1.10.2-1.el7.ngx          nginx    
+nginx-module-geoip-debuginfo.x86_64        1:1.10.2-1.el7.ngx          nginx    
+nginx-module-image-filter.x86_64           1:1.10.2-1.el7.ngx          nginx    
+nginx-module-image-filter-debuginfo.x86_64 1:1.10.2-1.el7.ngx          nginx    
+nginx-module-njs.x86_64                    1:1.10.2.0.0.20160414.1c50334fbea6-2.el7.ngx
+                                                                       nginx    
+nginx-module-njs-debuginfo.x86_64          1:1.10.2.0.0.20160414.1c50334fbea6-2.el7.ngx
+                                                                       nginx    
+nginx-module-perl.x86_64                   1:1.10.2-1.el7.ngx          nginx    
+nginx-module-perl-debuginfo.x86_64         1:1.10.2-1.el7.ngx          nginx    
+nginx-module-xslt.x86_64                   1:1.10.2-1.el7.ngx          nginx    
+nginx-module-xslt-debuginfo.x86_64         1:1.10.2-1.el7.ngx          nginx    
+nginx-nr-agent.noarch                      2.0.0-10.el7.ngx            nginx    
+pcp-pmda-nginx.x86_64                      3.10.6-2.el7                base     
+[root@192 yum.repos.d]#
+如果执行命令是这样的显示效果，那么我们的nginx的yum源就配置成功！
+然后要安装我们的nginx就直接执行:
+yum -y install nginx
+启动:
+# nginx      #启动nginx
+# curl 127.0.0.1
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
 
