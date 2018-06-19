@@ -1,0 +1,6 @@
+# centos7 忘记密码
+步骤一：在启动虚拟机出现如下界面的时候就按“e”键  https://img-blog.csdn.net/20161021130448551
+步骤二：在步骤一按下”e”键之后，出现如下界面，按 ↓键一直到底部找到“LANG=zh_CN.UTF-8”这句，在这句后面加上“init=/bin/sh”,然后按Ctrl+x。 
+步骤三：挂载文件系统为可写模式：mount –o remount,rw / 
+步骤四：执行passwd命令，修改root密码，密码要输入两次要求两次密码要一致。 
+步骤五：如果之前系统启用了selinux，必须执行以下命令，否则将无法正常启动系统：touch /.autorelabel。然后执行命令exec /sbin/init来正常启动，或者用命令exec /sbin/reboot重启就OK了。 
