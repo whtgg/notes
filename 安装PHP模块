@@ -1,0 +1,8 @@
+在执行phpize时报错说需要php-devel 
+然后yum -y install php-delel ;
+然后就报错
+错误：php70w-common conflicts with php-common-5.3.3-49.el6.x86_64  You could try using --skip-broken to
+解决办法；
+yum -y install php70w-devel 
+同理
+如果安装yum -y install php-bcmath 出现同样的错误 也可以 用yum -y install php70w-bcmath
