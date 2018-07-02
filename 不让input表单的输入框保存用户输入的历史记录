@@ -1,0 +1,4 @@
+如何不让input表单的输入框保存用户输入的历史记录.  
+有时我们在设计网页时不想让表单保存用户输入历史记录，比如一些隐私数据，或一些冲值卡
+
+<input name="test" type="text" id="test" autocomplete="off"/>
