@@ -1,0 +1,6 @@
+#nginx 405 错误
+  绝大多数服务器，都不允许静态文件响应post或者get请求，否则返回405 method not allowed
+  解决方案
+    修改配置文件 nginx.conf
+       server下的location加入error_page 405 =200 $uri;
+    参考：https://blog.csdn.net/a346673164/article/details/52932587
