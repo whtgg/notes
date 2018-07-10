@@ -1,0 +1,5 @@
+centos7默认没有安装该命令，在联网状态运行“yum install mlocate”命令即可安装"locate"命令。
+
+ 安装完之后运行“locate inittab”,
+ 
+ 如果没有查询出相关文件，运行下“updatedb”命令初始化一下文件库，locate 命令即可成功使用
