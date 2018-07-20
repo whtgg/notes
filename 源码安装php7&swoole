@@ -1,0 +1,7 @@
+下载源码 http://php.net/downloads.php
+建议不要到第三方去下载 尽量到官网下载
+源码格式：php-7.2.8.tar.bz2
+
+对源码进行解压：tar -xjvf php-7.2.8.tar.bz2
+tar (child): bzip2：无法 exec: 没有那个文件或目录 这个错误是因为 缺少bzip2包 yum install -y bzip2
+./configure 预编译
