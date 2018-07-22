@@ -1,2 +1,17 @@
 docker pull 如果docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.38/containers/create: dial unix /var/run/docker.sock: connect: permission denied.
 说明没有root权限 sudo即可
+安装docker-compose
+ 从github上下载docker-compose二进制文件安装
+下载最新版的docker-compose文件 
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+添加可执行权限 
+$ sudo chmod +x /usr/local/bin/docker-compose
+测试安装结果 
+$ docker-compose --version 
+docker-compose version 1.16.1, build 1719ceb
+安装最新的docker：
+$ curl -fsSL get.docker.com -o get-docker.sh
+$ sudo sh get-docker.sh
+或者 curl -sSL https://get.docker.com/ | sh 
+测试 是否安装成功
+sudo docker run hello-world
