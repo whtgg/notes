@@ -7,3 +7,6 @@ tar (child): bzip2：无法 exec: 没有那个文件或目录 这个错误是因
 ./configure 预编译
 swoole 重新编译 .configure --with-php-config=php-config地址 --with+其他参数 
 重新编译的 需要在configure 之后 make clean
+php --ri swoole 可以查看swoole扩展
+php -i | grep php.ini 可以查看 php配置文件位置
+
