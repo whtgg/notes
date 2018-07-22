@@ -5,3 +5,4 @@
 对源码进行解压：tar -xjvf php-7.2.8.tar.bz2
 tar (child): bzip2：无法 exec: 没有那个文件或目录 这个错误是因为 缺少bzip2包 yum install -y bzip2
 ./configure 预编译
+swoole 重新编译 .configure --with-php-config=php-config地址 --with+其他参数
