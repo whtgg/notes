@@ -1,0 +1,9 @@
+PHP:Warning: filesize() [function.filesize]: stat failed   这个错误 是由于 filesize需要文件绝对路径
+本地图片转换为base64位图片 
+function base64EncodeImage ($image_file) {
+  $base64_image = '';
+  $image_info = getimagesize($image_file);
+  $image_data = fread(fopen($image_file, 'r'), filesize($image_file));
+  $base64_image = 'data:' . $image_info['mime'] . ';base64,' . chunk_split(base64_encode($image_data));
+  return $base64_image;
+}
