@@ -10,3 +10,23 @@ swoole 重新编译 .configure --with-php-config=php-config地址 --with+其他�
 php --ri swoole 可以查看swoole扩展
 php -i | grep php.ini 可以查看 php配置文件位置
 https://blog.csdn.net/kongshuai19900505/article/details/75914454 安装libxml*
+遇到问题：
+Cannot find autoconf. Please check your autoconf installation and the $PHP_AUTOCONF environment variable. Then, rerun this script.
+解决：# cd /usr/src
+# wget http://ftp.gnu.org/gnu/m4/m4-1.4.9.tar.gz
+# tar -zvxf m4-1.4.9.tar.gz
+# cd m4-1.4.9/
+# ./configure && make && make install
+# cd ../
+# wget http://ftp.gnu.org/gnu/autoconf/autoconf-2.62.tar.gz
+# tar -zvxf autoconf-2.62.tar.gz
+# cd autoconf-2.62/
+# ./configure && make && make install
+更简单的办法
+# yum install m4
+# yum install autoconf
+
+centos安装git时 报错make[1]: *** [perl.mak] Error 2 
+解决：yum install perl-ExtUtils-MakeMaker package
+
+安装gcc c++ yum -y install gcc gcc_++
