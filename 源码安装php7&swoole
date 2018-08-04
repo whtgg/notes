@@ -9,4 +9,4 @@ swoole 重新编译 .configure --with-php-config=php-config地址 --with+其他�
 重新编译的 需要在configure 之后 make clean
 php --ri swoole 可以查看swoole扩展
 php -i | grep php.ini 可以查看 php配置文件位置
-
+https://blog.csdn.net/kongshuai19900505/article/details/75914454 安装libxml*
