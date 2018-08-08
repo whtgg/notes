@@ -1,0 +1,9 @@
+#安装 erlang
+> yum install wget 
+yum install net-tools
+wget http://erlang.org/download/otp_src_19.3.tar.gz
+tar -xvzf otp_src_19.3.tar.gz
+> yum -y install make gcc gcc-c++ kernel-devel m4 ncurses-devel openssl-devel unixODBC-devel 或者
+> yum install build-essential openssl openssl-devel unixODBC unixODBC-devel make gcc gcc-c++ kernel-devel m4 ncurses-devel tk tc
+> 编译 ./configure --prefix=/usr/local/erlang --enable-hipe --enable-threads --enable-smp-support --enable-kernel-poll  --without-javac
+
