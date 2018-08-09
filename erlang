@@ -6,4 +6,18 @@ tar -xvzf otp_src_19.3.tar.gz
 > yum -y install make gcc gcc-c++ kernel-devel m4 ncurses-devel openssl-devel unixODBC-devel 或者
 > yum install build-essential openssl openssl-devel unixODBC unixODBC-devel make gcc gcc-c++ kernel-devel m4 ncurses-devel tk tc
 > 编译 ./configure --prefix=/usr/local/erlang --enable-hipe --enable-threads --enable-smp-support --enable-kernel-poll  --without-javac
+documentation : 
+* xsltproc is missing.
+* fop is missing.
+* xmllint is missing.
+* The documentation can not be built. 解决：install libxml2-utils  xsltproc fop
+odbc : ODBC library – link check failed 解决：install unixodbc unixodbc-bin unixodbc-dev
+make[3]: *** [opt] Error 2
+make[3]: Leaving directory `/root/software/otp_src_R15B02/lib/jinterface/java_src‘
+make[2]: *** [opt] Error 2
+make[2]: Leaving directory `/root/software/otp_src_R15B02/lib/jinterface‘
+make[1]: *** [opt] Error 2
+make[1]: Leaving directory `/root/software/otp_src_R15B02/lib‘
+make: *** [tertiary_bootstrap_build] Error 2 解决：java 环境变量配置
+
 
