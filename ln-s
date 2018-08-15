@@ -1,1 +1,5 @@
 软链接ln -s以及如何解决其产生“Too many levels of symbolic links ”的错误？
+
+解决ln -s软链接产生“Too many levels of symbolic links ”的错误？ 在做ln的时候要将文件的绝对路径下的完整目录写上去！
+
+
