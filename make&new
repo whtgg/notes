@@ -3,3 +3,39 @@ make用于内建类型（map、slice 和channel）的内存分配。new用于各
 内建函数make(T, args)与new(T)有着不同的功能，make只能创建slice、map和channel，并且返回一个有初始值(非零)的T类型，而不是*T。
 本质来讲，导致这三个类型有所不同的原因是指向数据结构的引用在使用前必须被初始化。例如，一个slice，是一个包含指向数据（内部array）的指针、长度和容量的三项描述符；在这些项目被初始化之前，slice为nil。对于slice、map和channel来说，make初始化了内部的数据结构，填充适当的值。make返回初始化后的（非零）值。
 http://images.cnitblog.com/blog/120296/201302/12200732-ab157dc53e324f7a80f681f0ed436ab9.png
+列1：报错 因为*i是指针 没有初始化 找不到地址 对于引用类型的变量，我们不光要声明它，还要为它分配内容空间。
+package main
+import (
+ "fmt"
+)
+func main() {
+ var i *int
+ *i=10
+ fmt.Println(*i)
+}
+列2：分配地址 通过
+func main() {
+ var i *int
+ i=new(int)
+ *i=10
+ fmt.Println(*i)
+}
+例3：例中的user类型中的lock字段我不用初始化，直接可以拿来用，不会有无效内存引用异常，因为它已经被零值了。
+func main() {
+ u:=new(user)
+ u.lock.Lock()
+ u.name = "张三"
+ u.lock.Unlock()
+ fmt.Println(u)
+}
+type user struct {
+ lock sync.Mutex
+ name string
+ age int
+}
+
+new这个内置函数，可以给我们分配一块内存让我们使用，但是现实的编码中，它是不常用的。我们通常都是采用短语句声明以及结构体的字面量达到我们的目的，比如：
+i:=0
+u:=user{}
+这样更简洁方便，而且不会涉及到指针这种比麻烦的操作。
+make函数是无可替代的，我们在使用slice、map以及channel的时候，还是要使用make进行初始化，然后才才可以对他们进行操作。
