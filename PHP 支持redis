@@ -1,0 +1,75 @@
+参考地址：https://blog.csdn.net/will5451/article/details/71086420
+
+一，安装redis
+
+1,下载redis包：wget http://download.redis.io/releases/redis-2.8.9.tar.gz
+
+2,解压redis包后，进入redis-2.8.9目录中，进行编译  
+
+    先 make 
+
+   然后 make  install  
+
+   测试一下make test
+
+  最后运行redis服务端 /usr/local/bin/redis-server        (服务端redis-cli)
+
+3,到此为止，就算安装完成了redis了；
+
+（此时php并不能使用redis，因为没有安装php与redis的中间联系者：redis扩展）
+
+  （报错：Fatal error: Class 'Redis' not found in /home/huyi/www.php.com/shopping/redis_goods.php on line 9）
+
+二，现在是安装php的redis的扩展
+
+1，下载地址：http://pecl.php.net/package/redis
+
+2，选择需要的版本：
+
+
+
+Available Releases
+Version	State	Release Date	Downloads	
+3.1.2	stable	2017-03-24	redis-3.1.2.tgz (194.4kB)  DLL	[Changelog]
+3.1.1	stable	2017-02-01	redis-3.1.1.tgz (193.9kB)  DLL	[Changelog]
+3.1.1RC2	beta	2017-01-16	redis-3.1.1RC2.tgz (193.9kB)  DLL	[Changelog]
+3.1.0	stable	2016-12-14	redis-3.1.0.tgz (192.7kB)  DLL	[Changelog]
+3.0.0	stable	2016-06-10	redis-3.0.0.tgz (185.3kB)  DLL	[Changelog]
+2.2.8	stable	2016-06-08	redis-2.2.8.tgz (187.6kB)	[Changelog]
+2.2.7	stable	2015-03-03	redis-2.2.7.tgz (131.2kB)  DLL	[Changelog]
+2.2.5	stable	2014-03-19	redis-2.2.5.tgz (94.7kB)	[Changelog]
+2.2.4	stable	2013-09-02	redis-2.2.4.tgz (88.8kB)	[Changelog]
+2.2.3	stable	2013-04-29	redis-2.2.3.tgz (84.6kB)	[Changelog]
+
+3，下载文件后，使用rz命令上传到Linux机器上去，我这儿上传到的目录是/usr/local
+
+4,安装：
+
+     tar  -zxvf  redis-2.2.8.tgz
+
+     cd  redis-2.2.8
+
+     /usr/local/php/bin/phpize　　　　　　　　　　　　　　　　　　　　　　#用phpize生成
+
+    ./configure --with-php-config=/usr/local/php/bin/php-config 　　　　 #配置
+
+     make 
+
+      make  install 
+
+     到此扩展下载安装完成
+
+5，配置php.ini文件，使得php可以支持redis扩展
+
+   vim  /etc/php.ini
+
+   添加这行进去 ：　extension = redis.so
+
+  重启服务；
+
+  测试下phpinfo();现在就可以看到redis扩展支持了；
+--------------------- 
+作者：胡毅Ethan 
+来源：CSDN 
+原文：https://blog.csdn.net/will5451/article/details/71086420 
+版权声明：本文为博主原创文章，转载请附上博文链接！
