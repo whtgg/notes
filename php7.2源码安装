@@ -1,5 +1,11 @@
 参考地址：https://www.cnblogs.com/pengyunjing/p/8687097.html
 
+php7.2是2017年11月底发布的版本，
+在编译安装时，
+提示unrecognized options: –with-mcrypt, –enable-gd-native-ttf
+表示php7.2不支持这两个选项，
+把上面两个编译选项删除就可以了。
+
 安装扩展包并更新系统内核：
 
 yum install epel-release -y
