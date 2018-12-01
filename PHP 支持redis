@@ -1,4 +1,6 @@
 参考地址：https://blog.csdn.net/will5451/article/details/71086420
+参考地址：http://www.cnblogs.com/shawhe/p/9548620.html
+pecl地址：http://pecl.php.net/package/redis
 
 一，安装redis
 
@@ -7,6 +9,14 @@
 2,解压redis包后，进入redis-2.8.9目录中，进行编译  
 
     先 make 
+    compilation terminated.
+make[1]: *** [adlist.o] Error 1
+make[1]: Leaving directory `/usr/local/redis-5.0-rc3/src'
+make: *** [all] Error 2
+yum groupinstall 'Development Tools' 执行后&& make 
+出现 Hint: It's a good idea to run 'make test' 😉
+
+make[1]: Leaving directory `/usr/local/redis-5.0-rc3/src' 表示成功
 
    然后 make  install  
 
