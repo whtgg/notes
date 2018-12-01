@@ -1,0 +1,251 @@
+参考地址：https://www.jb51.net/article/37487.htm
+错误：configure: error: libevent >= 1.4.11 could not be found 
+
+解决：yum -y install libevent libevent-devel 
+
+
+
+错误：configure: error: Please reinstall the mysql distributio 
+
+解决：yum -y install mysql-devel 
+
+
+
+错误：make: *** [sapi/fpm/php-fpm] error 1 
+
+解决：用make ZEND_EXTRA_LIBS='-liconv'编译 
+
+
+
+错误：configure: error: XML configuration could not be found 
+
+解决：yum -y install libxml2 libxml2-devel 
+
+
+
+错误：configure: error: No curses/termcap library found 
+
+解决：yum -y install ncurses ncurses-devel 
+
+
+
+错误：configure: error: xml2-config not found 
+
+解决：yum -y install libxml2 libxml2-devel 
+
+
+
+错误：configure: error: Cannot find OpenSSL's <evp.h> 
+
+解决：yum install openssl openssl-devel 
+
+
+
+错误：configure: error: Please reinstall the libcurl distribution -easy.h should be in <curl-dir>/include/curl/ 
+
+解决：yum install curl curl-devel 
+
+
+
+错误：configure: error: Cannot find ldap.h 
+
+解决：yum install openldap openldap-devel 
+
+
+
+错误：configure: error: libjpeg.(a|so) not found 
+
+解决：yum install libjpeglibjpeg -devel 
+
+
+
+错误：configure: error: libpng.(a|so) not found. 
+
+解决：yum install libpnglibpng –devel 
+
+
+
+错误：onfigure: error: freetype.h not found. 
+
+解决：yum install freetype-devel 
+
+
+
+错误：configure: error: cannot find output from lex; giving up 
+
+解决：yum -y install flex 
+
+
+
+错误：configure: error: mod_deflate has been requested but can not be built due to prerequisite failures 
+
+解决：yum -y install zlib-devel openssl-devel 
+
+
+
+错误：Configure: error: Unable to locate gmp.h 
+
+解决：yum install gmp-devel 
+
+
+
+错误：Configure: error: Cannot find MySQL header files under /usr. 
+
+Note that the MySQL client library is not bundled anymore! 
+
+解决：yum install mysql-devel 
+
+更多的补充内容：
+
+安装php: ./configure 
+configure: error: XML configuration could not be found 
+
+yum -y install libxml2 libxml2-devel 
+
+Cannot find OpenSSL's <evp.h> 
+yum install openssl openssl-devel 
+
+1) Configure: error: xml2-config not found. Please check your libxml2 installation. 
+#yum install libxml2 libxml2-devel (For RedHat & Fedora) 
+# aptitude install libxml2-dev (For Ubuntu) 
+
+2) Checking for pkg-config… /usr/bin/pkg-config 
+configure: error: Cannot find OpenSSL's <evp.h> 
+#yum install openssl openssl-devel 
+
+3) Configure: error: Please reinstall the BZip2 distribution 
+# yum install bzip2 bzip2-devel 
+
+4) Configure: error: Please reinstall the libcurl distribution - 
+easy.h should be in <curl-dir>/include/curl/ 
+# yum install curl curl-devel (For RedHat & Fedora) 
+# install libcurl4-gnutls-dev (For Ubuntu) 
+
+5) Configure: error: libjpeg.(also) not found. 
+# yum install libjpeg libjpeg-devel 
+
+6) Configure: error: libpng.(also) not found. 
+# yum install libpng libpng-devel 
+
+7) Configure: error: freetype.h not found. 
+#yum install freetype-devel 
+
+8) Configure: error: Unable to locate gmp.h 
+# yum install gmp-devel 
+
+9) Configure: error: Cannot find MySQL header files under /usr. 
+Note that the MySQL client library is not bundled anymore! 
+# yum install mysql-devel (For RedHat & Fedora) 
+# apt-get install libmysql++-dev (For Ubuntu) 
+
+10) Configure: error: Please reinstall the ncurses distribution 
+# yum install ncurses ncurses-devel 
+
+11) Checking for unixODBC support… configure: error: ODBC header file ‘/usr/include/sqlext.h' not found! 
+# yum install unixODBC-devel 
+
+12) Configure: error: Cannot find pspell 
+# yum install pspell-devel 
+
+13) configure: error: mcrypt.h not found. Please reinstall libmcrypt. 
+# yum install libmcrypt libmcrypt-devel (For RedHat & Fedora) 
+# apt-get install libmcrypt-dev 
+
+14) Configure: error: snmp.h not found. Check your SNMP installation. 
+# yum install net-snmp net-snmp-devel 
+
+15) 
+/usr/bin/ld: cannot find -lltdl 
+collect2: ld returned 1 exit status 
+make: *** [sapi/cgi/php-cgi] Error 1 
+# yum install libtool-ltdl.x86_64 libtool-ltdl-devel.x86_64 
+
+16） 
+为php编译xcache模块的时候，需要运行phpize 
+得到了一个错误 
+#/usr/local/php/bin/phpize 
+Configuring for: 
+PHP Api Version: 20041225 
+Zend Module Api No: 20060613 
+Zend Extension Api No: 220060519 
+Cannot find autoconf. Please check your autoconf installation and the $PHP_AUTOCONF 
+environment variable is set correctly and then rerun this script. 
+通过安装 autoconf 可以解决 
+centos下执行 yum install autoconf 即可 
+Ubuntu下执行 apt-get install autoconf 即可 
+17） 
+# /usr/local/php/bin/phpize 
+Cannot find config.m4. 
+Make sure that you run '/usr/local/php/bin/phpize' in the top level source directory of the module 
+修改方法： 
+[root@centos lnmp]# cd php-5.2.14ext/ 
+[root@centos ext]# ./ext_skel --extname=my_module 
+Creating directory my_module 
+Creating basic files: config.m4 config.w32 .cvsignore my_module.c php_my_module.h CREDITS EXPERIMENTAL tests/001.phpt my_module.php [done]. 
+To use your new extension, you will have to execute the following steps: 
+1. $ cd .. 
+2. $ vi ext/my_module/config.m4 
+3. $ ./buildconf 
+4. $ ./configure --[with|enable]-my_module 
+5. $ make 
+6. $ ./php -f ext/my_module/my_module.php 
+7. $ vi ext/my_module/my_module.c 
+8. $ make 
+Repeat steps 3-6 until you are satisfied with ext/my_module/config.m4 and 
+step 6 confirms that your module is compiled into PHP. Then, start writing 
+code and repeat the last two steps as often as necessary. 
+[root@centos ext]# cd my_module/ 
+[root@centos my_module]# vim config.m4 
+根据你自己的选择将 
+dnl PHP_ARG_WITH(my_module, for my_module support, 
+dnl Make sure that the comment is aligned: 
+dnl [ --with-my_module Include my_module support]) 
+修改成 
+PHP_ARG_WITH(my_module, for my_module support, 
+Make sure that the comment is aligned: 
+[ --with-my_module Include my_module support]) 
+或者将 
+dnl PHP_ARG_ENABLE(my_module, whether to enable my_module support, 
+dnl Make sure that the comment is aligned: 
+dnl [ --enable-my_module Enable my_module support]) 
+修改成 
+PHP_ARG_ENABLE(my_module, whether to enable my_module support, 
+Make sure that the comment is aligned: 
+[ --enable-my_module Enable my_module support]) 
+[root@centos my_module]# vim my_module.c 
+　　将文件其中的下列代码进行修改 
+/* Every user visible function must have an entry in my_module_functions[]. 
+*/ 
+function_entry my_module_functions[] = { 
+　　　　PHP_FE(say_hello,　　　 NULL)　/* ?添加着一行代码 */ 
+　　　　PHP_FE(confirm_my_module_compiled,　　　NULL) /* For testing, remove later. */ 
+　　　　{NULL, NULL, NULL}　　　/* Must be the last line in my_module_functions[] */ 
+}; 
+　　在文件的最后添加下列代码 
+PHP_FUNCTION(say_hello) 
+{ 
+　　　　zend_printf("hello sdomain!"); 
+} 
+再修改：php_sdomain.h 
+vi php_sdomain.h 
+在PHP_FUNCTION(confirm_my_module_compiled ); /* For testing, remove later. */ 这行的下面添加一行： 
+PHP_FUNCTION(say_hello); /* For testing, remove later. */ 
+　　保存文件退出 
+　　然后我们就可以在这个目录下使用上面的命令了 
+　　/usr/local/php/bin/phpize 
+　　执行以后会看到下面的 
+　　[root@ns sdomain]# /usr/local/php/bin/phpize 
+　　Configuring for: 
+　　PHP Api Version:　　　　 20020918 
+　　Zend Module Api No:　　　20020429 
+　　Zend Extension Api No:　 20050606 
+　　[root@ns sdomain]# 
+　　然后执行./configure --with-php-config=/usr/local/php/bin/php-config 
+　　然后执行make 
+　 make install 
+然后他会把对应的so文件生成放到PHP安装目录下面的一个文件夹，并提示在在什么地方，然后再把里面的SO文件拷到你存放SO文件的地方 
+　　即你在php.ini里面的extension_dir所指定的位置 
+　　最后一步是你在php.ini文件中打开这个扩展 
+　　extension=sdomain.so 
+　　然后 
+　　重新起动apache 
