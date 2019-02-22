@@ -1,0 +1,14 @@
+首先准备好 Dockerfile 
+执行构建命令： docker build -t second:v1.0 .
+
+注意最后有个点，代表使用当前路径的 Dockerfile 进行构建 ，
+
+-t  second : v1.0  给新构建的镜像取名为 second， 并设定版本为 v1.0 。
+
+docker build： 用 Dockerfile 构建镜像的命令关键词。
+[OPTIONS] : 命令选项，常用的指令包括 -t 指定镜像的名字，
+    -f 显示指定构建镜像的 Dockerfile 文件（Dockerfile 可不在当前路径下），
+     如果不使用 -f，则默认将上下文路径下的名为 Dockerfile 的文件认为是构建镜像的 "Dockerfile" 。
+上下文路径|URL： 指定构建镜像的上下文的路径，构建镜像的过程中，可以且只可以引用上下文中的任何文件 。
+
+最后可以用docker images 查看是否构建成功。
