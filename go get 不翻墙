@@ -1,0 +1,4 @@
+在GOPATH下的目录层次src/golang.org/x(没有哪个层次就创建哪个层次，因为vgo的包名是golang.org/x/vgo)，
+然后在x目录下使用git克隆vgo仓库>git clone http://github.com/golang/vgo.git
+进入vgo目录运行命令go build -O vgo.exe main.go，
+最后将生成的vgo二进制文件复制到你的环境变量路径里(注意vgo二进制文件的命名：Windows系统是vgo.exe，Mac或Linux是无后缀的vgo)。
