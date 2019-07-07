@@ -1,0 +1,8 @@
+大部分教程都是直接告诉我们，我们只需要在有go的环境下，输入:
+  go get -v github.com/spf13/cobra/cobra
+便可以顺顺利利的安装。然而，现实与理想还是有差距的。许多同学都因为某些被墙的链接而停在了某一步骤。解决方法当然是有的。 
+请在 $GOPATH/src/golang.org/x 目录下用 git clone 下载 sys 和 text 项目，然后使用 go install github.com/spf13/cobra/cobra, 安装后在 $GOBIN 下出现了cobra 可执行程序。如果你没有配置 $GOBIN，那么可以在$GOPATH/bin 下找到 cobra的可执行软件。(这个方法适用于大部分出现类似问题的第三方包下载)
+
+生成项目文件
+  cobra init dirname --pkg-name=pkgname #--pkg-name必须添加 否则报错
+  
