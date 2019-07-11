@@ -12,3 +12,6 @@
 使用案例：protoc -I=D:\bqt\proto --go_out=D:\bqt\out test.proto
 如果在当前目录执行命令，可以简化为：protoc --go_out=D:\bqt\out test.proto
 执行上面代码后会发现，在指定的目录下面生成了包含包名的PersonEntity.go类(虽然定义很简单,但是生成的类有将近1000行代码)
+
+目录1和目录2 都可以是相对路径
+文件3是目录1下面的文件,不可以有*通配符
