@@ -1,0 +1,14 @@
+通过protoc命令编译.proto文件生成go类：
+命令：protoc -I=目录1 --go_out=目录2 文件3
+【-I=目录1】：输入目录。这个参数是简称，全称为：【--proto_path=目录1】。可同时指定多个，目录将按顺序搜索。如果没有给出，则使用当前工作目录。
+【--go_out=目录2】：输出目录，指定生成的go源文件的目录。
+【文件3】：输入文件。
+如果指定了相对文件路径，则将在工作目录[working directory]中搜索该文件。
+选项 --proto_path 不会影响搜索此参数文件的方式。
+文件内容将在参数列表中的 @<filename> 位置展开。
+请注意，shell扩展不会应用于文件的内容(即，您不能使用引号、通配符、转义、命令[quotes, wildcards, escapes, commands]等)。
+每行对应一个参数，即使它包含空格。
+生成 go 类时使用【go_out】，生成其他语言的结构化数据时只需更改这个参数即可，例如如果用在iOS上，可以使用【objc_out】，这就是其跨平台的体现。
+使用案例：protoc -I=D:\bqt\proto --go_out=D:\bqt\out test.proto
+如果在当前目录执行命令，可以简化为：protoc --go_out=D:\bqt\out test.proto
+执行上面代码后会发现，在指定的目录下面生成了包含包名的PersonEntity.go类(虽然定义很简单,但是生成的类有将近1000行代码)
