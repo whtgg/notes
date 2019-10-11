@@ -1,0 +1,10 @@
+可以通过两种方式实现
+1.pecl pdo_msql 
+
+方式二：
+docker-php-ext-install pdo pdo_mysql
+如果报  /usr/local/bin/docker-php-ext-enable: cannot create /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini: Directory nonexistent    
+解决方案：
+   直接在/usr/local/etc/php目录下面新建 conf.d目录和对应的docker-php-ext-pdo_msql.ini文件
+其中docker-php-ext-pdo_msql.ini的内容为：
+extension=pdo_mysql.so
