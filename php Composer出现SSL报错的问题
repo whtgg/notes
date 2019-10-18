@@ -1,0 +1,24 @@
+以前都在linux环境使用php composer。今天尝试在win7下运行composer却出现SSL报错：
+
+D:\data\www\mmoyu\symapp>php -f %phprc%\composer install
+Loading composer repositories with package information
+
+  [Composer\Downloader\TransportException]
+  The "https://packagist.org/packages.json" file could not be downloaded: SSL
+   operation failed with code 1. OpenSSL Error messages:
+  error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify
+  failed
+  Failed to enable crypto
+  failed to open stream: operation failed
+
+install [--prefer-source] [--prefer-dist] [--dry-run] [--dev] [--no-dev] [--no-p
+lugins] [--no-custom-installers] [--no-scripts] [--no-progress] [-v|vv|vvv|--ver
+bose] [-o|--optimize-autoloader]
+没有安装CA证书导致的！！！
+
+CA证书下载地址：http://curl.haxx.se/docs/caextract.html
+
+然后修改php.ini文件
+
+openssl.cafile= D:/wamp/php/verify/cacert.pem
+就OK了~
