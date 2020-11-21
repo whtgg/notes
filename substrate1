@@ -1,0 +1,36 @@
+### 搭建环境
+ * ubuntu
+ -> sudo apt update
+ -> apt install -y cmake pkg-config libssl-dev git build-essential clang libclang-dev curl
+ 
+ * rust 安装
+ -> # Install
+    curl https://sh.rustup.rs -sSf | sh
+    # Configure
+    source ~/.cargo/env
+ ->  Clone the Node Template (version v2.0.0).
+   * git clone -b v2.0.0 --depth 1 https://github.com/substrate-developer-hub/substrate-node-template
+   * make init
+   * make build
+ -> git clone -b v2.0.0 --depth 1 https://github.com/substrate-developer-hub/substrate-front-end-template
+   * yarn install
+
+### 问题
+安装node 
+# Using Ubuntu
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Using Debian, as root
+curl -sL https://deb.nodesource.com/setup_12.x | bash -
+apt-get install -y nodejs
+
+安装 yarn
+全局安装 npm install -g yarn 默认1.22   
+
+libusb.1.0.sp 找不到问题 
+ * git clone https://github.com/libusb/libusb.git  apt install autoconf automake libtool-bin libudev-dev libusb-dev 
+ * ./configure && make && make install
+
+ 
+
