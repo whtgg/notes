@@ -32,6 +32,16 @@ libusb.1.0.sp 找不到问题
  * git clone https://github.com/libusb/libusb.git  apt install autoconf automake libtool-bin libudev-dev libusb-dev 
  * ./configure && make && make install
  * 转:https://blog.csdn.net/liuzq/article/details/103614730
+ 
+ 
+ws 链接问题
+修改 substrate-front-end-template/src/development.json 配置 链接地址
+
+安装 nginx 
+dnf info nginx / dnf install nginx 
+
+
+
 
  
 
