@@ -1,0 +1,39 @@
+### 准备
+# 安装docker
+# 安装docker-compose
+# 下载破解文件
+  wget https://files.cnblogs.com/files/sanduzxcvbnm/atlassian-agent-v1.2.3.zip
+  unzip atlassian-agent-v1.2.3.zip
+# 安装java
+  sudo apt install openjdk-11-jre-headless
+
+### 安装
+# 编辑docker-compose
+```
+  version: '3'
+  services:
+    confluence:
+      build: ./confluence
+      container_name: wiki_confluence
+      ports:
+        - 18010:8090
+      links:
+        - mysql:mysql
+    mysql:
+      build: ./mysql
+      restart: always
+      ports:
+        - 3306:3306
+      environment:
+        MYSQL_ROOT_PASSWORD: qwe..123
+      volumes:
+        - /home/ubuntu/data/msyql_8_0/data:/var/lib/mysql
+      container_name: mysql_8_0
+ ```
+ # 启动容器docker-compose up -d 激活confluence 获得服务器ID：ex:B9LY-EP4T-QLTH-EJXR
+ # 用 atlassian-agent 生成激活码
+   java -jar atlassian-agent.jar -d -m 1175416689@qq.com -n BAT -p conf -o http://confluence/ -s B9LY-EP4T-QLTH-EJXR
+ # 配置数据库
+   选择字符串 jdbc:mysql://mysql:3306/confluence?useSSL=false&sessionVariables=transaction_isolation='READ-COMMITTED'（注:READ-COMMITTED）
+   
+      
