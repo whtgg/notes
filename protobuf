@@ -1,0 +1,15 @@
+问题： protoc-gen-go-grpc: program not found or is not executable
+
+需要安装：
+  
+go get -u google.golang.org/protobuf/cmd/protoc-gen-go
+go install google.golang.org/protobuf/cmd/protoc-gen-go
+go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+
+问题：The import path must contain at least one forward slash ('/') character.
+go_package="xxx" 必须携带"/"
+
+关于protoc
+  --proto_path 指定在哪个目录下寻找proto文件
+  --go_out 指定编译后文件目录 会最终用这个值+go_package组成最终路径 
